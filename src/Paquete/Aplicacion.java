@@ -13,17 +13,17 @@ public class Aplicacion {
 	//SE INSTERTA DATOS AL FINAL DE LA LISTA
 		 if (lista.estaVacia())
 			 
-	     System.out.println("--LISTA--");
-		 lista.insertaralInicio("Elemento (1)");
-		 lista.insertaralInicio("Elemento (2)");
-		 lista.insertaralInicio("Elemento (3)");
-		 lista.insertaralInicio("Elemento (4)");
+	      System.out.println("--LISTA--");
 		 lista.insertaralInicio("Elemento (5)");
+		 lista.insertaralInicio("Elemento (4)");
+		 lista.insertaralInicio("Elemento (3)");
+		 lista.insertaralInicio("Elemento (2)");
+		 lista.insertaralInicio("Elemento (1)");
 		 
 		 //NUMERO DE ELEMENTOS
 		 
 		 lista.imprimirListaFrente();
-		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
+		 System.out.println("LA LISTA TIENE "+  lista.tamaÃ±o()  + " ELEMENTOS");
 		 
 		 //ELIMINAR ELEMENTOS
 	     
@@ -33,7 +33,7 @@ public class Aplicacion {
 		  
 		 System.out.println("\n -- LISTA NUEVA --");
 		 lista.imprimirListaFrente();
-		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
+		 System.out.println("LA LISTA TIENE "+  lista.tamaÃ±o()  + " ELEMENTOS");
 		 
 		 //IMPRIMIR LISTA DESDE HEAD
 		 
@@ -58,7 +58,7 @@ public class Aplicacion {
 		 lista.vaciar();
 		 if (lista.estaVacia())
 			 System.out.println("\n -- LISTA VACIA --");
-		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
+		 System.out.println("LA LISTA TIENE "+  lista.tamaÃ±o()  + " ELEMENTOS");
 
 		 
 		 

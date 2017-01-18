@@ -75,7 +75,7 @@ public class SLinkedList {
 	 
 	 //CONTADOR DE ELEMENTOS 
 	 
-	 public int tamaño()
+	 public int tamaÃ±o()
 	 {
 	     Node auxiliar;
 	     size=0;
@@ -98,7 +98,7 @@ public class SLinkedList {
 	     Node auxiliar= head;
 	     int contador=1;
 
-	     if(posicion<1 || posicion>tamaño()){
+	     if(posicion<1 || posicion>tamaÃ±o()){
 	         System.out.println("no existe esa posicion");
 	     }else{
 	         while(auxiliar!=null){
@@ -123,7 +123,7 @@ public class SLinkedList {
 	     Node anterior=null;
 	     int contador=1;
 
-	     if(posicion<1 || posicion>tamaño()){
+	     if(posicion<1 || posicion>tamaÃ±o()){
 	         System.out.println("no existe esa posicion");
 	     }else{
 	         while(auxiliar!=null){
@@ -167,6 +167,31 @@ public class SLinkedList {
 	            auxiliar = auxiliar.getPrev();
 	        }
 	    }
+	
+	//REMOVER ULTIMO
+	     
+	 
+	    public String removeLast() {
+	        if (size == 0) throw new NoSuchElementException();
+	        Node tmp = tail;
+	        tail = tail.prev;
+	        tail.next = null;
+	        size--;
+	        System.out.println("deleted: "+tmp.element);
+	        return tmp.element;
+	    }
+	 
+	//REMOVER PRIMERO
+	    
+		 public String removeFirst() {
+		        if (size == 0) throw new NoSuchElementException();
+		        Node tmp = head;
+		        head = head.next;
+		        head.prev = null;
+		        size--;
+		        System.out.println("deleted: "+tmp.element);
+		        return tmp.element;
+		    }
 
 	
 }

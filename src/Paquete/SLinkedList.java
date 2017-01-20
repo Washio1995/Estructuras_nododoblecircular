@@ -1,5 +1,7 @@
 package Paquete;
 
+import java.util.NoSuchElementException;
+
 public class SLinkedList {
 	
 	
@@ -61,7 +63,7 @@ public class SLinkedList {
 	     Node auxiliar = new Node(element, null, tail);
 	     if (tail!=null) {head.prev = auxiliar;}
 	     head = auxiliar;
-	     if(head == null){tail.next = auxiliar;}
+	     if(head == null){tail = auxiliar;}
 	     
 	 }
 	 

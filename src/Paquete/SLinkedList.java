@@ -178,7 +178,6 @@ public class SLinkedList {
 	        Node tmp = tail;
 	        tail = tail.prev;
 	        tail.next = null;
-	        size--;
 	        System.out.println("deleted: "+tmp.element);
 	        return tmp.element;
 	    }
@@ -190,7 +189,6 @@ public class SLinkedList {
 		        Node tmp = head;
 		        head = head.next;
 		        head.prev = null;
-		        size--;
 		        System.out.println("deleted: "+tmp.element);
 		        return tmp.element;
 		    }

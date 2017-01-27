@@ -10,68 +10,63 @@ public class Aplicacion {
 		SLinkedList lista = new SLinkedList(); 
 		Scanner teclado = new Scanner(System.in);
 		
-	//SE INSTERTA DATOS AL FINAL DE LA LISTA
-		 if (lista.estaVacia())
+	//SE INSTERTA DATOS 
 			 
+		 
 	      System.out.println("--LISTA--");
-	
-		
-		 lista.insertaralInicio("Elemento (5)");
-		 lista.insertaralInicio("Elemento (4)");
-		 lista.insertaralInicio("Elemento (3)");
-		 lista.insertaralInicio("Elemento (2)");
+	     
+	     lista.insertaralInicio("Elemento (2)");
 		 lista.insertaralInicio("Elemento (1)");
-		 lista.insertarFinal("Elemento (FIN)");
+		 lista.insertaralInicio("Elemento (0)");
+		 lista.insertarFinal("Elemento (3)");
+		 lista.insertarFinal("Elemento (4)");
 	
-	
- 
 		 //NUMERO DE ELEMENTOS
 		 
 		 lista.imprimirListaFrente();
+		 
+		 lista.imprimirListaAtras();
+		 
+		 
 		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
 		 
 		 //ELIMINAR ELEMENTOS
 	     
-		 System.out.println("\nSe remueve el utlimo elemento de la lista");
-		 //int borrar = teclado.nextInt();
-		 lista.removeLast();
+		 System.out.println("\nIngrese la posicion que desea eliminar.......");
+		 int borrar = teclado.nextInt();
+		 lista.eliminarpos(borrar);
 		  
-		 System.out.println("\n\n -- LISTA NUEVA --");
+		 System.out.println("\n -- LISTA NUEVA --");
 		 lista.imprimirListaFrente();
 		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
 		 
 		 //IMPRIMIR LISTA DESDE HEAD
 		 
-		 System.out.println("\n\n--LISTA DESDE FRENTE--");
+		 System.out.println("--LISTA DESDE FRENTE--");
 		 lista.imprimirListaFrente();
-		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
 		 
 		 //IMPRIMIR LISTA DESDE TAIL
-		 System.out.println("\n\n--LISTA DESDE ATRAS--");
+		 System.out.println("--LISTA DESDE ATRAS--");
 		 lista.imprimirListaAtras();
-		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
 		 
 		 
 		 //BUSAR POR INDICE
-		 //System.out.println("\nIngrese el nombre completo del dato.......");
-		 //int localiza2 = teclado.nextString();
-		 //lista.buscar(localiza2);
 		 
-		 
-		 
-		 //BUSCAR POR DATO
 		 System.out.println("\nIngrese la posicion que desea localizar.......");
 		 int localiza = teclado.nextInt();
 		 lista.localizar(localiza);
 		 
+		 //BUSCAR POR DATO
+		 
 		 //VACIAR LISTA
+		 
 		 lista.vaciar();
 		 if (lista.estaVacia())
 			 System.out.println("\n -- LISTA VACIA --");
 		 System.out.println("LA LISTA TIENE "+  lista.tamaño()  + " ELEMENTOS");
 
 		 
-		 
+		
 	}
 	
 	

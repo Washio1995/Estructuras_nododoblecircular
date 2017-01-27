@@ -1,48 +1,23 @@
-package Paquete;
-
 import java.util.NoSuchElementException;
 
 public class SLinkedList {
 	
 	
-	protected Node head;
+	protected Node head; //primero
 	protected long size;
-	protected Node tail;
+	protected Node tail; //ultimo
 	
-	
-	private class Node {
-		
-		 String element;
-		 Node next;
-		 Node prev;
-		
-	    public Node (String element, Node next, Node prev){
-	    	this.element = element;
-	        this.next = next;
-	        this.prev = prev;
-	    }
-	    
-		
-		public String getElement() { return element;}
-		
-		public Node getNext() {return next;}
-		
-		public Node getPrev() {return prev;}
-		
-		public void setElement(String newElem)  { element = newElem;}
-		
-		public void setNext( Node newNext)  {next= newNext;}
-		
-	}
-	
+
 	
 	public void SLinkedlist() 
 	{
 		head = null;
-	size= 0; 
-
+		tail = null;
+	    size= 0; 
 	}
-	 public boolean estaVacia(){
+
+	
+	public boolean estaVacia(){
 		 return head==null;	 
 	 }
 
@@ -51,19 +26,44 @@ public class SLinkedList {
 	 
 	 public void insertaralInicio(String element){
 		 
+		 // 21 <-- 1--> <-- 2 -- > < -- 3 --> 21
+		 
 		 Node auxiliar = new Node(element,head,null);
-		 if (head != null) {head.prev = auxiliar;}
-		 head = auxiliar;
-	     if(tail == null){tail = auxiliar;}
+		 if (head == null) {
+	     head = auxiliar;
+	     head.next = auxiliar; 
+		 auxiliar.prev= tail;
+		 tail=auxiliar;
+		 }
+		 else{
+	     head.prev = auxiliar;
+	     auxiliar.next = head;
+	     auxiliar.prev=tail;
+	     //head.next = auxiliar;
+	     head=auxiliar;
+	     head.prev=tail;
+	     
+		 }
 	     }
 	     
 	 
 	 public void insertarFinal(String element){
 
-	     Node auxiliar = new Node(element, null, tail);
-	     if (tail!=null) {head.prev = auxiliar;}
-	     head = auxiliar;
-	     if(head == null){tail = auxiliar;}
+	     Node auxiliar = new Node(element, tail, null);
+	     if(head == null){
+	    	 tail = auxiliar;
+		     tail.next = auxiliar; //circulo 
+			 auxiliar.prev= head;
+			 head=auxiliar;
+	     }  else {
+	    	 tail.next = auxiliar;
+			 auxiliar.next= head;
+			 auxiliar.prev = tail;
+			 tail = auxiliar;
+			 head.prev = tail;  //circular
+			 
+	    	 
+	     }
 	     
 	 }
 	 
@@ -149,11 +149,12 @@ public class SLinkedList {
 	 //RECORRER LA LSITA DESDE HEAD
 	 
 	 public void imprimirListaFrente(){
-	     Node auxiliar= head;
-	     while(auxiliar!=null){
-	         System.out.println(auxiliar.getElement());
-	         auxiliar=auxiliar.getNext();
-	     }
+		 
+	     Node actual = head;
+	     do{
+	    	 System.out.println(actual.element);
+	    	 actual = actual.next;
+	     } while(actual!=head);
 	     
 	 }
 	 
@@ -163,11 +164,11 @@ public class SLinkedList {
 	 
 	 public void imprimirListaAtras(){
          
-	        Node auxiliar = tail;
-	        while(auxiliar != null){
-	            System.out.println(auxiliar.getElement());
-	            auxiliar = auxiliar.getPrev();
-	        }
+	        Node actual = tail;
+	        do {
+	        	System.out.println(actual.element);
+	        	actual = actual.prev;
+	        } while(actual!=tail);
 	    }
 	
 	//REMOVER ULTIMO
@@ -178,6 +179,7 @@ public class SLinkedList {
 	        Node tmp = tail;
 	        tail = tail.prev;
 	        tail.next = null;
+	        size--;
 	        System.out.println("deleted: "+tmp.element);
 	        return tmp.element;
 	    }
@@ -189,6 +191,7 @@ public class SLinkedList {
 		        Node tmp = head;
 		        head = head.next;
 		        head.prev = null;
+		        size--;
 		        System.out.println("deleted: "+tmp.element);
 		        return tmp.element;
 		    }
